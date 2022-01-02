@@ -1,0 +1,23 @@
+.button {
+    cursor: pointer;
+    background: #71C638;
+
+    border: 2px solid #263F2A;
+    box-sizing: border-box;
+
+    box-shadow: inset 0px 4px 0px #B5FF84, inset 0px -4px 0px #46881B;
+    border-radius: 8px;
+
+    padding: 8px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+}
+
+.button:active {
+    box-shadow: initial;
+}
