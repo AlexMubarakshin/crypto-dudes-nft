@@ -1,0 +1,43 @@
+.typography {
+}
+
+.typography.h1 {
+    font-size: 6rem;
+    line-height: 1.167;
+}
+
+.typography.h2 {
+    font-size: 3.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.00833em;
+}
+
+.typography.h3 {
+    font-size: 3rem;
+    line-height: 1.167;
+    letter-spacing: 0em;
+}
+
+.typography.body {
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.typography.body2 {
+    font-size: 0.875rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+}
+
+.typography.button {
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.typography.bold {
+    font-weight: 700;
+}
+
+.typography.gutterBottom {
+    margin-bottom: 0.35em;
+}

@@ -1,1 +1,1 @@
-export { default as ConnectPage } from './connect'
+export { default as ConnectPage } from './connect';

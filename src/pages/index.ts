@@ -1,1 +1,1 @@
-export { ConnectPage } from './connect'
+export { ConnectPage } from './connect';
