@@ -29,6 +29,8 @@
         ]
       }
     ],
+    "import/no-cycle": "off",
+    "no-param-reassign": "off",
     "react/function-component-definition": "off",
     "react/require-default-props": "off",
     "import/prefer-default-export": "off",

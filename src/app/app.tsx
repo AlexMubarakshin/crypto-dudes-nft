@@ -1,13 +1,16 @@
 import React from 'react';
 
-import './app.css';
+import './style.css';
 
-import { ConnectPage } from '../pages';
+import { RouterProvider, StoreProvider } from './providers';
+import { Router } from '../router';
 
 const App: React.FC = () => (
-  <div>
-    <ConnectPage />
-  </div>
+  <StoreProvider>
+    <RouterProvider>
+      <Router />
+    </RouterProvider>
+  </StoreProvider>
 );
 
 export default App;

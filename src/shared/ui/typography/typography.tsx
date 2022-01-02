@@ -24,6 +24,7 @@ type Props = {
 const Typography: React.FC<Props> = ({
   children,
   className,
+  // eslint-disable-next-line @typescript-eslint/no-shadow
   style = {},
   align,
   variant = 'body',

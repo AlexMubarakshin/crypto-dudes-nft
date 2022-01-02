@@ -2,7 +2,11 @@ import React from 'react';
 
 import { config, web3, Button } from '../../shared';
 
-const useMetamaskButton = () => {
+type OnConnectedCallback = (accountId: string) => void;
+
+const useMetamaskButton = (
+  onConnected: OnConnectedCallback,
+) => {
   const onClick = async (): Promise<void> => {
     const isMetamaskExist = web3.isExist();
     if (!isMetamaskExist) {
@@ -20,9 +24,7 @@ const useMetamaskButton = () => {
       alert('Please select Ropsten Testnet Network Network on MetaMask!');
     }
 
-    console.log({ account, chainId });
-
-    return undefined;
+    return onConnected(chainId);
   };
 
   return ({
@@ -30,8 +32,14 @@ const useMetamaskButton = () => {
   });
 };
 
-const ConnectButton: React.FC = () => {
-  const { onClick } = useMetamaskButton();
+type Props = {
+  onConnected: OnConnectedCallback,
+};
+
+const ConnectButton: React.FC<Props> = ({
+  onConnected,
+}) => {
+  const { onClick } = useMetamaskButton(onConnected);
   return (
     <Button onClick={onClick}>
       Connect wallet
