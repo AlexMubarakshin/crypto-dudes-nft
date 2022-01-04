@@ -1,3 +1,5 @@
+import { ethers } from 'ethers';
+
 const isExist = () => !!(window as any).ethereum;
 
 const connectWaller = async () => {
@@ -24,8 +26,24 @@ const connectedChainId = async (): Promise<string> => {
   return '';
 };
 
+const getSigner = () => {
+  const provider = new ethers.providers.Web3Provider((window as any).ethereum);
+  return provider.getSigner();
+};
+
+const getContact = async (address: string, abi: any) => {
+  const signer = getSigner();
+  return new ethers.Contract(
+    address,
+    abi,
+    signer,
+  );
+};
+
 export default {
   isExist,
   connectWaller,
   connectedChainId,
+  getSigner,
+  getContact,
 };

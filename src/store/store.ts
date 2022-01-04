@@ -1,9 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { userModule } from './modules';
+import {
+  connectionModule,
+  gameModule,
+  nftModule,
+  userModule,
+} from './modules';
 
 export const store = configureStore({
   reducer: {
+    connection: connectionModule.reducer,
+    game: gameModule.reducer,
+    nft: nftModule.reducer,
     user: userModule.reducer,
   },
 });

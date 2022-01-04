@@ -1,17 +1,13 @@
 import React from 'react';
 
-import { useAppDispatch, userModule } from '../../store';
+import {
+  Button, Container, Typography,
+} from '../../shared';
 
-import { Container, Typography } from '../../shared';
-
-import ConnectButton from './connect-button';
+import { useConnectPage } from './hooks';
 
 const ConnectPage: React.FC = () => {
-  const dispatch = useAppDispatch();
-
-  const onAccountConnected = (accountId: string) => {
-    dispatch(userModule.actions.setAccountId(accountId));
-  };
+  const { connecting, onConnectClick } = useConnectPage();
 
   return (
     <Container>
@@ -19,7 +15,9 @@ const ConnectPage: React.FC = () => {
         Hey ✌️
       </Typography>
 
-      <ConnectButton onConnected={onAccountConnected} />
+      <Button onClick={onConnectClick} disabled={connecting}>
+        Connect wallet
+      </Button>
 
     </Container>
   );

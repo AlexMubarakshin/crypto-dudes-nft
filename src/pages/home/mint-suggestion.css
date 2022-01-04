@@ -1,0 +1,8 @@
+.mint-suggestion .title {
+    color: #FFFFFF;
+}
+
+.mint-suggestion .list {
+    display: flex;
+    justify-content: center;
+}

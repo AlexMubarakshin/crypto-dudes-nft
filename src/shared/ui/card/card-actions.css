@@ -1,0 +1,12 @@
+.card-actions {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-actions > *:not(:last-child) {
+    margin-right: 16px;
+}
+
+.card-actions > * {
+    width: 100%;
+}
