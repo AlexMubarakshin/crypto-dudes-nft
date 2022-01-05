@@ -8,6 +8,8 @@ import {
   Container, Loader,
 } from '../../shared';
 
+import { NavigationHeader } from '../../widgets';
+
 import MintSuggestion from './mint-suggestion';
 import OwnedCharacters from './owned-characters';
 
@@ -71,16 +73,21 @@ const HomePage: React.FC = () => {
     dispatch(gameModule.mintCharacter(characterIndex));
   };
 
-  const onOwnCharacterLevelUpClick = (characterIndex: number) => {
+  const onOwnCharacterLevelUpClick = React.useCallback((characterIndex: number) => {
     dispatch(nftModule.upgradeFace(characterIndex));
-  };
+  }, []);
 
-  const onOwnCharacterLegendaryLevelUpClick = (characterIndex: number) => {
+  const onOwnCharacterLegendaryLevelUpClick = React.useCallback((characterIndex: number) => {
     dispatch(nftModule.upgradeLegendaryLevel(characterIndex));
-  };
+  }, []);
+
+  // eslint-disable-next-line max-len
+  const onOwnCharacterInfoSave = React.useCallback((characterIndex: number, name: string, description: string) => {
+    console.log({ characterIndex, name, description }); // TODO: Call edit action
+  }, []);
 
   return (
-    <Container>
+    <Container header={<NavigationHeader />}>
       {
         isContractInitialized && (
           <>
@@ -101,6 +108,7 @@ const HomePage: React.FC = () => {
                   characters={ownedCharacters}
                   onLevelUpgradeClick={onOwnCharacterLevelUpClick}
                   onLegendaryLevelUpgradeClick={onOwnCharacterLegendaryLevelUpClick}
+                  onInfoSaveClick={onOwnCharacterInfoSave}
                 />
               )
             }

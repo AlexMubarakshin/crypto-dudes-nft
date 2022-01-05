@@ -55,6 +55,23 @@ export const upgradeLegendaryLevel = createAsyncThunk(
   },
 );
 
+export const updateCharacterInfo = createAsyncThunk(
+  'game/updateCharacterInfo',
+
+  async (info: { characterIndex: number, name: string, description: string }, {
+    getState,
+    rejectWithValue,
+  }): Promise<any> => {
+    const state: RootState = getState() as any;
+
+    if (!state.nft.contract) {
+      return rejectWithValue('Contract not found') as any;
+    }
+
+    return state.nft.contract.updateCharacterInfo(info.characterIndex, info.name, info.description);
+  },
+);
+
 const slice = createSlice({
   name: 'nft',
   initialState,

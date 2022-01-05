@@ -27,6 +27,7 @@ contract CryptoFacesNFT is ERC721URIStorage, GameModel {
 
     event LegendaryLevelUpdated(uint256 tokenId, Character player);
     event LevelUpdated(uint256 tokenId, Character player);
+    event InfoUpdated(uint256 tokenId, Character player);
 
     constructor(string memory name, string memory symbol) ERC721(name, symbol) {
         console.log("NFT initialized!");
@@ -124,5 +125,18 @@ contract CryptoFacesNFT is ERC721URIStorage, GameModel {
         player.hypeLevel = playerNextLevel;
 
         emit LevelUpdated(tokenId, player);
+    }
+
+    function updateCharacterInfo(uint256 tokenId, string memory characterName, string memory characterDescription) external payable {
+        require(ownerOf(tokenId) == msg.sender);
+        require(bytes(characterName).length != 0);
+        require(bytes(characterDescription).length != 0);
+
+        Character storage player = characterNFTs[tokenId];
+
+        player.name = characterName;
+        player.description = characterDescription;
+
+        emit InfoUpdated(tokenId, player);
     }
 }

@@ -1,0 +1,23 @@
+.text-area {
+    resize: none;
+
+    font-family: 'Poppins', sans-serif;
+    border-style: none;
+    border-radius: 8px;
+    padding: 4px 16px;
+    outline: none;
+
+    background-color: #94633A;
+    color: #FFFFFF;
+
+    font-size: 14px;
+    line-height: 21px;
+
+    margin: 0;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}

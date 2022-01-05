@@ -1,0 +1,24 @@
+.navigation-header {;
+    padding: 16px 64px;
+
+    background: #FDC25B;
+
+    border: 2px solid #4A1C25;
+
+    box-shadow: inset 0 -8px 0 #EE9448;
+    border-radius: 24px;
+
+    display: flex;
+
+    margin-bottom: 32px;
+}
+
+.navigation-header > *:not(:last-child) {
+    margin-right: 12px;
+}
+
+@media screen and (max-width: 500px) {
+    .navigation-header {
+        padding: 16px 16px;
+    }
+}

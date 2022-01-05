@@ -23,6 +23,8 @@ exports.deploy = async (nftContract) => {
         [CHARACTERS.default.imageURI],
     );
 
+    console.log(`💪 Deploying ${contractName} contract...`);
+
     await contract.deployed();
 
     return contract;

@@ -6,11 +6,16 @@ import './container.css';
 
 type Props = {
   className?: string;
+
+  header?: React.ReactElement;
 };
 
-const Container: React.FC<Props> = ({ children, className }) => (
+const Container: React.FC<Props> = ({ children, className, header }) => (
   <div className={classnames('container', className)}>
-    {children}
+    <div className={classnames('container-inner')}>
+      {header}
+      {children}
+    </div>
   </div>
 );
 

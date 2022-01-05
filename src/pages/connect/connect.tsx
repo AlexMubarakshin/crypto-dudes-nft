@@ -6,11 +6,13 @@ import {
 
 import { useConnectPage } from './hooks';
 
+import './connect.css';
+
 const ConnectPage: React.FC = () => {
   const { connecting, onConnectClick } = useConnectPage();
 
   return (
-    <Container>
+    <Container className="connect-container">
       <Typography align="center" variant="h1" gutterBottom style={{ color: '#FFFFFF' }}>
         Hey ✌️
       </Typography>

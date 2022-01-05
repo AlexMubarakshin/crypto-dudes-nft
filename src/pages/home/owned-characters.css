@@ -2,9 +2,8 @@
     width: 100%;
 }
 
-.owned-characters .title{
+.owned-characters .title {
     color: #FFFFFF;
-    text-align: center;
 }
 
 .owned-characters .list {
@@ -13,7 +12,6 @@
     grid-gap: 24px;
 
     width: 100%;
-    justify-content: center;
 }
 
 .owned-characters .list .list-card {

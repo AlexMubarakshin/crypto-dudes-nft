@@ -6,7 +6,7 @@ import {
   Button, CardAction, Character, Typography,
 } from '../../shared';
 
-import CharacterCard from './character-card';
+import CharacterCardMint from './character-card-mint';
 
 type Props = {
   characters: Character[];
@@ -24,7 +24,7 @@ const MintSuggestion: React.FC<Props> = ({ characters, minting, onMintClick }) =
     <div className="list">
       {
         characters.map((character) => (
-          <CharacterCard
+          <CharacterCardMint
             key={character.cryptoFaceIndex}
             className="list-card"
             cryptoFaceIndex={character.cryptoFaceIndex}

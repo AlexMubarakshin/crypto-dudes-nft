@@ -1,4 +1,6 @@
 .button {
+    display: flex;
+    justify-content: center;
     cursor: pointer;
     background: #71C638;
 
@@ -49,4 +51,13 @@
 .outlined:disabled {
     color: #1518216b;
     border-color: #1518216b;
+}
+
+.button-icon {
+
+}
+
+.text {
+    background: transparent;
+    border-width: 0;
 }

@@ -1,15 +1,16 @@
 .container {
     min-height: calc(100vh - 36px);
+}
+
+.container .container-inner {
     padding: 24px 64px 12px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
 @media screen and (max-width: 500px) {
-    .container {
+    .container .container-inner {
         padding: 24px 8px 12px;
     }
 }

@@ -1,0 +1,8 @@
+.navigation-header-item {
+    color: #3C415C;
+    padding: 4px 12px;
+}
+
+.navigation-header-item:visited {
+    color: #3C415C;
+}

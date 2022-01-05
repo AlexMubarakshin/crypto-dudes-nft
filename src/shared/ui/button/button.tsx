@@ -1,23 +1,13 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 
+import { ButtonProps } from './types';
+
 import style from './button.module.css';
 
 const cx = classnames.bind(style);
 
-type ButtonVariant = 'contained' | 'outlined';
-
-type Props = {
-  className?: string;
-  disabled?: boolean;
-
-  variant?: ButtonVariant;
-  style?: React.CSSProperties;
-
-  onClick?: () => void;
-};
-
-const Button: React.FC<Props> = ({
+const Button: React.FC<ButtonProps> = ({
   className,
   children,
   variant = 'contained',
@@ -31,6 +21,7 @@ const Button: React.FC<Props> = ({
     className={cx('button', {
       contained: variant === 'contained',
       outlined: variant === 'outlined',
+      text: variant === 'text',
     }, className)}
     onClick={onClick}
     disabled={disabled}

@@ -20,6 +20,10 @@
     line-height: 24px;
 }
 
-.card .card-content>div:not(:last-child) {
+.card .card-content > *:not(:last-child) {
     margin-bottom: 8px;
+}
+
+.card .card-header {
+    position: relative;
 }

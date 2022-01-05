@@ -3,18 +3,16 @@ import { useLocation, Navigate } from 'react-router-dom';
 
 import { ROUTES } from './routes';
 import {
-  connectionModule, useAppDispatch, useAppSelector, userModule,
+  connectionModule, useAppSelector, userModule,
 } from '../store';
 
 const useConnectionListener = () => {
-  const dispatch = useAppDispatch();
-
   const isConnected = useAppSelector(connectionModule.selectConnected);
   const isAuthorized = useAppSelector(userModule.selectAccountId);
 
   React.useEffect(() => {
-    (window as any).ethereum.on('accountsChanged', (accounts: any[]) => {
-      dispatch(userModule.actions.setAccountId(accounts[0]));
+    (window as any).ethereum.on('accountsChanged', () => {
+      window.location.reload();
     });
 
     (window as any).ethereum.on('chainChanged', () => {

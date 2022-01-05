@@ -1,6 +1,7 @@
 .card-actions {
     display: flex;
     flex-direction: row;
+    margin-top: 24px;
 }
 
 .card-actions > *:not(:last-child) {

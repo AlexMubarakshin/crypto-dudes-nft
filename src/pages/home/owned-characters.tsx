@@ -2,11 +2,9 @@ import React from 'react';
 
 import './owned-characters.css';
 
-import {
-  Button, CardAction, Character, Typography,
-} from '../../shared';
+import { Character, Typography } from '../../shared';
 
-import CharacterCard from './character-card';
+import OwnCharacterCard from './character-card-own';
 
 type Props = {
   upgrading?: boolean;
@@ -14,6 +12,7 @@ type Props = {
 
   onLegendaryLevelUpgradeClick: (characterIndex: number) => void;
   onLevelUpgradeClick: (characterIndex: number) => void;
+  onInfoSaveClick: (characterIndex: number, name: string, description: string) => void;
 };
 
 const OwnedCharacters: React.FC<Props> = ({
@@ -21,6 +20,7 @@ const OwnedCharacters: React.FC<Props> = ({
   upgrading,
   onLevelUpgradeClick,
   onLegendaryLevelUpgradeClick,
+  onInfoSaveClick,
 }) => (
   <div className="owned-characters">
     <Typography variant="h3" gutterBottom className="title">
@@ -30,7 +30,7 @@ const OwnedCharacters: React.FC<Props> = ({
     <div className="list">
       {
         characters.map((character) => (
-          <CharacterCard
+          <OwnCharacterCard
             key={character.cryptoFaceIndex}
             className="list-card"
             cryptoFaceIndex={character.cryptoFaceIndex}
@@ -40,23 +40,10 @@ const OwnedCharacters: React.FC<Props> = ({
             legendaryHypeLevel={character.legendaryHypeLevel}
             hypeLevel={character.hypeLevel}
             hypeValue={character.hypeValue}
-            actions={(
-              <CardAction>
-                <Button
-                  disabled={character.hypeLevel !== 300}
-                  onClick={() => onLegendaryLevelUpgradeClick(character.cryptoFaceIndex)}
-                >
-                  Upgrade legendary level
-                </Button>
-
-                <Button
-                  disabled={upgrading || character.hypeLevel === 300}
-                  onClick={() => onLevelUpgradeClick(character.cryptoFaceIndex)}
-                >
-                  Upgrade character
-                </Button>
-              </CardAction>
-            )}
+            upgrading={upgrading}
+            onLevelUpgradeClick={onLevelUpgradeClick}
+            onLegendaryLevelUpgradeClick={onLegendaryLevelUpgradeClick}
+            onInfoSaveClick={onInfoSaveClick}
           />
         ))
       }

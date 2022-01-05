@@ -9,6 +9,8 @@ exports.deploy = async (tokenName, tokenSymbol) => {
     // Deploy our contract to the local blockchain.
     const contract = await contractFactory.deploy(tokenName, tokenSymbol);
 
+    console.log(`💪 Deploying ${contractName} contract...`);
+
     await contract.deployed();
 
     return contract;

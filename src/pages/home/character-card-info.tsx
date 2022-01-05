@@ -1,33 +1,23 @@
 import React from 'react';
-
-import classnames from 'classnames/bind';
-
-import { Card, Character, Typography } from '../../shared';
-
-import style from './character-card.module.css';
-
-const cx = classnames.bind(style);
+import { Typography } from '../../shared';
 
 type Props = {
-  className?: string;
-  actions?: React.ReactElement;
-} & Character;
+  name: string
 
-const CharacterCard: React.FC<Props> = ({
-  className,
-
+  legendaryHypeLevel: number
+  hypeLevel: number
+  hypeValue: number
+  description: string
+};
+const CharacterCardInfo: React.FC<Props> = ({
   name,
+
   legendaryHypeLevel,
   hypeLevel,
   hypeValue,
   description,
-
-  actions,
 }) => (
-  <Card
-    className={cx('character-card', className)}
-    actions={actions}
-  >
+  <>
     <Typography><b>{name}</b></Typography>
     <Typography>
       Legendary hype level:
@@ -45,7 +35,7 @@ const CharacterCard: React.FC<Props> = ({
       <b>{hypeValue}</b>
     </Typography>
     <Typography>{description}</Typography>
-  </Card>
+  </>
 );
 
-export default CharacterCard;
+export default CharacterCardInfo;

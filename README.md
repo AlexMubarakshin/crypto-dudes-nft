@@ -6,6 +6,11 @@ Basic NFT game
 
 Paste your keys to `.env` file
 
+### .env
+
+- API_URL: Alchemy or any other Provider endpoint (Default: Ropsten)
+- PRIVATE_KEY: Private key for the deployer account
+
 ```bash
 # Build smart contracts
 $ build:contracts
