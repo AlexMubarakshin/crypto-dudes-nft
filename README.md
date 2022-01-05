@@ -8,7 +8,7 @@ Paste your keys to `.env` file
 
 ### .env
 
-- API_URL: Alchemy or any other Provider endpoint (Default: Ropsten)
+- API_URL: Alchemy or any other Provider endpoint (Default: Rinkeby)
 - PRIVATE_KEY: Private key for the deployer account
 
 ```bash

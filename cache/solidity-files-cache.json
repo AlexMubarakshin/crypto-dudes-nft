@@ -120,8 +120,8 @@
       ]
     },
     "/Users/alex/Documents/Projects/personal/crypto-emoji/contracts/NFT.sol": {
-      "lastModificationDate": 1641284777777,
-      "contentHash": "a089aed8f3ce680133699b83861e936c",
+      "lastModificationDate": 1641378172773,
+      "contentHash": "3244c91ea16ffacf86f1bdf5902216dc",
       "sourceName": "contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.0",

@@ -30,8 +30,8 @@ export const useConnectPage = () => {
 
     const chainId = await web3.connectedChainId();
 
-    if (chainId !== config.ropstenNetworkId) {
-      const errorMessage = 'Please select Ropsten Testnet Network Network on MetaMask!';
+    if (chainId !== config.rinkebyNetworkId) {
+      const errorMessage = 'Please select Rinkeby Testnet Network Network on MetaMask!';
       dispatch(connectionModule.actions.connectFailure(errorMessage));
 
       return alert(errorMessage);
