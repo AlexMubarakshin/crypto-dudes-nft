@@ -12,6 +12,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   variant = 'contained',
   disabled,
+  title,
   // eslint-disable-next-line @typescript-eslint/no-shadow
   style,
   onClick,
@@ -22,10 +23,12 @@ const Button: React.FC<ButtonProps> = ({
       contained: variant === 'contained',
       outlined: variant === 'outlined',
       text: variant === 'text',
+      icon: variant === 'icon',
     }, className)}
     onClick={onClick}
     disabled={disabled}
     style={style}
+    title={title}
   >
     {children}
   </button>

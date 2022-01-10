@@ -2,7 +2,7 @@ import { Contract } from 'ethers';
 
 import { RootState } from '../../store';
 
-import { Character } from '../../../shared';
+import { CharacterModel } from '../../../entities';
 
 export const selectGameContract = (state: RootState): Nullable<Contract> => state.game.contract;
 export const selectGameContractInitializing = (state: RootState): boolean => (
@@ -12,7 +12,7 @@ export const selectGameContractInitialized = (state: RootState): boolean => (
   state.game.initialized
 );
 
-export const selectDefaultCharacters = (state: RootState): Character[] => (
+export const selectDefaultCharacters = (state: RootState): CharacterModel.Character[] => (
   state.game.defaultCharacters
 );
 export const selectDefaultCharactersLoading = (state: RootState): boolean => (
@@ -22,7 +22,7 @@ export const selectDefaultCharactersLoaded = (state: RootState): boolean => (
   state.game.isDefaultCharactersLoaded
 );
 
-export const selectOwnedCharacters = (state: RootState): Character[] => (
+export const selectOwnedCharacters = (state: RootState): CharacterModel.Character[] => (
   state.game.ownedCharacters
 );
 export const selectOwnedCharactersLoading = (state: RootState): boolean => (

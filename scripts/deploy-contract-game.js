@@ -15,7 +15,6 @@ exports.characters = CHARACTERS;
 exports.deploy = async (nftContract) => {
     const contractFactory = await ethers.getContractFactory(contractName)
 
-    // Start deployment, returning a promise that resolves to a contract object
     const contract = await contractFactory.deploy(
         nftContract.address,
         [CHARACTERS.default.name],

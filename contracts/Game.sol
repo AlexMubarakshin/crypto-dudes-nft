@@ -1,6 +1,5 @@
 pragma solidity ^0.8.0;
 
-
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 import "./models/Game.sol";
@@ -16,7 +15,7 @@ contract CryptoFacesGame is ERC721, GameModel {
     event CharacterNFTMinted(address sender, uint256 tokenId, uint256 cryptoFaceIndex, Character character);
 
     Character[] defaultCharacters;
-    CryptoFacesNFT nft;
+    CryptoFacesNFT private nft;
 
     constructor(
         CryptoFacesNFT _nft,
@@ -25,7 +24,7 @@ contract CryptoFacesGame is ERC721, GameModel {
         string[] memory characterImages
     ) payable ERC721(nameOfToken, symbolOfToken) {
         console.log("CryptoFacesGame initializing...");
-        // Save the NFT contract
+
         nft = _nft;
 
         // Initialize the game with default characters

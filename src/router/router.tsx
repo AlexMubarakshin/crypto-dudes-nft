@@ -1,7 +1,12 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { ConnectPage, HomePage, NotFoundPage } from '../pages';
+import {
+  ConnectPage,
+  HomePage,
+  MarketplacePage,
+  NotFoundPage,
+} from '../pages';
 
 import { ROUTES } from './routes';
 
@@ -14,11 +19,21 @@ const Router: React.FC = () => (
       path={ROUTES.connect}
       element={<RouteInvisibleWhenAuthorized><ConnectPage /></RouteInvisibleWhenAuthorized>}
     />
+
     <Route
       path={ROUTES.home}
       element={(
         <RouteProtected>
           <HomePage />
+        </RouteProtected>
+      )}
+    />
+
+    <Route
+      path={ROUTES.marketplace}
+      element={(
+        <RouteProtected>
+          <MarketplacePage />
         </RouteProtected>
       )}
     />

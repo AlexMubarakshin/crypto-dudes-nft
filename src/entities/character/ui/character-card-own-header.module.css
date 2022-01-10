@@ -1,0 +1,28 @@
+.character-card-actions {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    display: flex;
+}
+
+.character-card-actions > *:not(:last-child) {
+    margin-right: 12px;
+}
+
+.character-card-actions .upgrade-icon {
+    animation: scaling 4s linear infinite alternate;
+}
+
+.upgrade-icon.legendary-level-up {
+    background-color: #FDC25B;
+    border-radius: 100px;
+}
+
+@keyframes scaling {
+    0% {
+        transform: scale(1.0);
+    }
+    100% {
+        transform: scale(1.4);
+    }
+}

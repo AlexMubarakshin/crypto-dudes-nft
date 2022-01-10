@@ -5,6 +5,7 @@ const {
     deploy: deployGameContact
 } = require('./deploy-contract-game')
 const {deploy: deployNFTContract} = require('./deploy-contract-nft')
+const {deploy: deployMarketplaceContract} = require('./deploy-contract-marketplace')
 
 const TOKEN_NAME = 'CryptoFaces';
 const TOKEN_SYMBOL = 'CFS';
@@ -22,6 +23,9 @@ const main = async () => {
 
     const gameContract = await deployGameContact(nftContract);
     console.log('✌️  Game contact deployed %s', gameContract.address);
+
+    const marketPlaceContract = await deployMarketplaceContract(nftContract);
+    console.log('✌️  Marketplace contact deployed %s', marketPlaceContract.address);
 
     console.log('📇 Game contract balance:', await getContractBalance(gameContract.address));
     console.log('📇 NFT contract balance:', await getContractBalance(nftContract.address));

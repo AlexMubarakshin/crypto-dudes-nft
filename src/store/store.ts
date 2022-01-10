@@ -5,12 +5,14 @@ import {
   gameModule,
   nftModule,
   userModule,
+  marketplaceModule,
 } from './modules';
 
 export const store = configureStore({
   reducer: {
     connection: connectionModule.reducer,
     game: gameModule.reducer,
+    marketplace: marketplaceModule.reducer,
     nft: nftModule.reducer,
     user: userModule.reducer,
   },

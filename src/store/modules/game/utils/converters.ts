@@ -1,8 +1,8 @@
 import { BigNumber } from 'ethers';
 
-import { Character } from '../../../../shared';
+import { CharacterModel } from '../../../../entities';
 
-export const contractCharacter2Frontend = (character: any): Character => ({
+export const contractCharacter2Frontend = (character: any): CharacterModel.Character => ({
   cryptoFaceIndex: (character.cryptoFaceIndex as BigNumber).toNumber(),
   name: character.name,
   description: character.description,

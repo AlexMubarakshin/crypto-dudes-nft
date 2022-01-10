@@ -21,3 +21,7 @@
 
     width: 100%;
 }
+
+.text-area::placeholder {
+    color: #dbdbdb;
+}

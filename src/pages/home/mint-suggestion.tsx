@@ -2,14 +2,14 @@ import React from 'react';
 
 import './mint-suggestion.css';
 
+import { CharacterModel, CharacterUI } from '../../entities';
+
 import {
-  Button, CardAction, Character, Typography,
+  Button, CardActions, Typography,
 } from '../../shared';
 
-import CharacterCardMint from './character-card-mint';
-
 type Props = {
-  characters: Character[];
+  characters: CharacterModel.Character[];
 
   minting?: boolean;
   onMintClick: (characterIndex: number) => void;
@@ -21,10 +21,10 @@ const MintSuggestion: React.FC<Props> = ({ characters, minting, onMintClick }) =
       Mint your character
     </Typography>
 
-    <div className="list">
+    <CharacterUI.CharactersGrid>
       {
         characters.map((character) => (
-          <CharacterCardMint
+          <CharacterUI.CharacterCardMint
             key={character.cryptoFaceIndex}
             className="list-card"
             cryptoFaceIndex={character.cryptoFaceIndex}
@@ -35,16 +35,16 @@ const MintSuggestion: React.FC<Props> = ({ characters, minting, onMintClick }) =
             hypeLevel={character.hypeLevel}
             hypeValue={character.hypeValue}
             actions={(
-              <CardAction>
+              <CardActions>
                 <Button disabled={minting} onClick={() => onMintClick(character.cryptoFaceIndex)}>
                   Mint
                 </Button>
-              </CardAction>
+              </CardActions>
             )}
           />
         ))
       }
-    </div>
+    </CharacterUI.CharactersGrid>
   </div>
 );
 

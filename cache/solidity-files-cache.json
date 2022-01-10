@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/Users/alex/Documents/Projects/personal/crypto-emoji/contracts/Game.sol": {
-      "lastModificationDate": 1641245729830,
-      "contentHash": "9e073348d69293bdadc619f89037675f",
+      "lastModificationDate": 1641645662574,
+      "contentHash": "5c3e5b4a88469a5473ce92604f57e607",
       "sourceName": "contracts/Game.sol",
       "solcConfig": {
         "version": "0.8.0",
@@ -626,6 +626,79 @@
       ],
       "artifacts": [
         "Base64"
+      ]
+    },
+    "/Users/alex/Documents/Projects/personal/crypto-emoji/contracts/Marketplace.sol": {
+      "lastModificationDate": 1641651482295,
+      "contentHash": "c5f51b020774ead85ce7337123fbc737",
+      "sourceName": "contracts/Marketplace.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./models/Game.sol",
+        "./NFT.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Marketplace"
+      ]
+    },
+    "/Users/alex/Documents/Projects/personal/crypto-emoji/contracts/IMarketplace.sol": {
+      "lastModificationDate": 1641459220276,
+      "contentHash": "4b4a6c9da433eb0d44f75b9b9041e840",
+      "sourceName": "contracts/IMarketplace.sol",
+      "solcConfig": {
+        "version": "0.8.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IMarketplace"
       ]
     }
   }

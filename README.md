@@ -2,6 +2,12 @@
 
 Basic NFT game
 
+Features:
+- Mint character
+- Upgrade character level
+- Update character info
+- Selling/buying characters on the internal market
+
 ## Installation
 
 Paste your keys to `.env` file
@@ -13,9 +19,9 @@ Paste your keys to `.env` file
 
 ```bash
 # Build smart contracts
-$ build:contracts
+$ yarn build:contracts
 
-$ deploy:contracts
+$ yarn deploy:contracts
 # ⚠️ Copy NFT and Game contracts address from output
 # ⚠️ To `src/shared/config/index.ts`
 

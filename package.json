@@ -5,7 +5,8 @@
   "scripts": {
     "copy:game-abi": "cp ./artifacts/contracts/Game.sol/CryptoFacesGame.json ./src/abi/",
     "copy:nft-abi": "cp ./artifacts/contracts/NFT.sol/CryptoFacesNFT.json ./src/abi/",
-    "deploy:contracts": "npx hardhat run ./scripts/deploy.js --network rinkeby && yarn copy:game-abi && yarn copy:nft-abi",
+    "copy:marketplace-abi": "cp ./artifacts/contracts/Marketplace.sol/Marketplace.json ./src/abi/",
+    "deploy:contracts": "npx hardhat run ./scripts/deploy.js --network rinkeby && yarn copy:game-abi && yarn copy:nft-abi && yarn copy:marketplace-abi",
     "build:contracts": "npx hardhat compile",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",

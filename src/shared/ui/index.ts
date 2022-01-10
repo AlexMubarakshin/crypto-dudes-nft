@@ -1,5 +1,5 @@
 export { Button } from './button';
-export { Card, CardAction, CardMedia } from './card';
+export { Card, CardActions, CardMedia } from './card';
 export { Container } from './container';
 export { Input } from './input';
 export { Loader } from './loader';

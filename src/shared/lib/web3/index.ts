@@ -33,6 +33,7 @@ const getSigner = () => {
 
 const getContact = async (address: string, abi: any) => {
   const signer = getSigner();
+
   return new ethers.Contract(
     address,
     abi,

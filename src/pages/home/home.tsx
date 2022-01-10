@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {
-  gameModule, nftModule, useAppDispatch, useAppSelector,
+  gameModule, nftModule, marketplaceModule, useAppDispatch,
 } from '../../store';
 
 import {
@@ -16,32 +16,24 @@ import OwnedCharacters from './owned-characters';
 const HomePage: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const gameContract = useAppSelector(gameModule.selectGameContract);
-  const gameContractInitialized = useAppSelector(gameModule.selectGameContractInitialized);
+  const {
+    contract: gameContract,
+    initialized: gameContractInitialized,
+    defaultsCharacters,
+    ownedCharacters,
+    isOwnedCharactersLoaded,
+    isMinting,
+  } = gameModule.hooks.useGameContract();
 
-  const nftContract = useAppSelector(nftModule.selectNftContract);
-  const nftContractInitialized = useAppSelector(nftModule.selectNftContractInitialized);
+  const {
+    contract: nftContract,
+    initialized: nftContractInitialized,
+    upgrading,
+  } = nftModule.hooks.useNFTContract();
 
-  const defaultsCharacters = useAppSelector(gameModule.selectDefaultCharacters);
-
-  const ownedCharacters = useAppSelector(gameModule.selectOwnedCharacters);
-  const isOwnedCharactersLoaded = useAppSelector(gameModule.selectOwnedCharactersLoaded);
-
-  const isMinting = useAppSelector(gameModule.selectMinting);
-  const upgrading = useAppSelector(nftModule.selectUpgrading);
+  const { setOffer } = marketplaceModule.hooks.useMarketplace();
 
   const isContractInitialized = gameContractInitialized && nftContractInitialized;
-
-  React.useEffect(() => {
-    const promises: Promise<unknown>[] = [];
-    promises.push(dispatch(nftModule.initializeContract()));
-    promises.push(dispatch(gameModule.initializeContract()));
-
-    Promise.all(promises).then(() => {
-      dispatch(gameModule.geDefaultsCharacters());
-      dispatch(gameModule.getOwnedCharacters());
-    });
-  }, []);
 
   React.useEffect(() => {
     if (gameContract) {
@@ -66,6 +58,12 @@ const HomePage: React.FC = () => {
 
         dispatch(gameModule.getOwnedCharacters());
       });
+
+      nftContract.on('InfoUpdated', (...args: any[]) => {
+        console.log({ InfoUpdated: args });
+
+        dispatch(gameModule.getOwnedCharacters());
+      });
     }
   }, [nftContract]);
 
@@ -82,9 +80,11 @@ const HomePage: React.FC = () => {
   }, []);
 
   // eslint-disable-next-line max-len
-  const onOwnCharacterInfoSave = React.useCallback((characterIndex: number, name: string, description: string) => {
-    console.log({ characterIndex, name, description }); // TODO: Call edit action
-  }, []);
+  const onOwnCharacterInfoSave = React.useCallback((characterIndex: number, name: string, description: string) => dispatch(nftModule.updateCharacterInfo({
+    characterIndex,
+    name,
+    description,
+  })), []);
 
   return (
     <Container header={<NavigationHeader />}>
@@ -109,6 +109,7 @@ const HomePage: React.FC = () => {
                   onLevelUpgradeClick={onOwnCharacterLevelUpClick}
                   onLegendaryLevelUpgradeClick={onOwnCharacterLegendaryLevelUpClick}
                   onInfoSaveClick={onOwnCharacterInfoSave}
+                  onSellClick={setOffer}
                 />
               )
             }

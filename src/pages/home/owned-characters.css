@@ -5,23 +5,3 @@
 .owned-characters .title {
     color: #FFFFFF;
 }
-
-.owned-characters .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 302px);
-    grid-gap: 24px;
-
-    width: 100%;
-}
-
-.owned-characters .list .list-card {
-    width: initial;
-}
-
-
-@media screen and (max-width: 380px) {
-    .owned-characters .list {
-        grid-template-columns: 1fr;
-
-    }
-}

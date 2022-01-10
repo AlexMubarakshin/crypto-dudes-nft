@@ -2,9 +2,11 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { Contract } from 'ethers';
 
+import { CharacterModel } from '../../../entities';
+
 import { RootState } from '../../store';
 
-import { Character, config, web3 } from '../../../shared';
+import { config, web3 } from '../../../shared';
 
 import { converters } from './utils';
 
@@ -16,11 +18,11 @@ type GameStoreState = {
   initialized: boolean;
   initializing: boolean;
 
-  defaultCharacters: Character[];
+  defaultCharacters: CharacterModel.Character[];
   isDefaultCharactersLoading: boolean;
   isDefaultCharactersLoaded: boolean;
 
-  ownedCharacters: Character[];
+  ownedCharacters: CharacterModel.Character[];
   isOwnedCharactersLoading: boolean;
   isOwnedCharactersLoaded: boolean;
 

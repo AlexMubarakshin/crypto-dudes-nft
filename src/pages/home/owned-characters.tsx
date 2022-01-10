@@ -2,17 +2,17 @@ import React from 'react';
 
 import './owned-characters.css';
 
-import { Character, Typography } from '../../shared';
-
-import OwnCharacterCard from './character-card-own';
+import { Typography } from '../../shared';
+import { CharacterModel, CharacterUI } from '../../entities';
 
 type Props = {
   upgrading?: boolean;
-  characters: Character[];
+  characters: CharacterModel.Character[];
 
   onLegendaryLevelUpgradeClick: (characterIndex: number) => void;
   onLevelUpgradeClick: (characterIndex: number) => void;
-  onInfoSaveClick: (characterIndex: number, name: string, description: string) => void;
+  onInfoSaveClick: (characterIndex: number, name: string, description: string) => Promise<unknown>;
+  onSellClick: (characterIndex: number, price: number) => Promise<unknown>;
 };
 
 const OwnedCharacters: React.FC<Props> = ({
@@ -21,16 +21,17 @@ const OwnedCharacters: React.FC<Props> = ({
   onLevelUpgradeClick,
   onLegendaryLevelUpgradeClick,
   onInfoSaveClick,
+  onSellClick,
 }) => (
   <div className="owned-characters">
     <Typography variant="h3" gutterBottom className="title">
       Your characters:
     </Typography>
 
-    <div className="list">
+    <CharacterUI.CharactersGrid>
       {
         characters.map((character) => (
-          <OwnCharacterCard
+          <CharacterUI.CharacterCardOwn
             key={character.cryptoFaceIndex}
             className="list-card"
             cryptoFaceIndex={character.cryptoFaceIndex}
@@ -44,10 +45,11 @@ const OwnedCharacters: React.FC<Props> = ({
             onLevelUpgradeClick={onLevelUpgradeClick}
             onLegendaryLevelUpgradeClick={onLegendaryLevelUpgradeClick}
             onInfoSaveClick={onInfoSaveClick}
+            onSellClick={onSellClick}
           />
         ))
       }
-    </div>
+    </CharacterUI.CharactersGrid>
   </div>
 );
 
